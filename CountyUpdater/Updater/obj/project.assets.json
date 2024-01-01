@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Haxeflixel shit\\fnf source\\mandela mod omg\\Main County Funkin\\CountyUpdater\\Updater\\Updater.csproj",
+      "projectUniqueName": "D:\\Haxeflixel shit\\fnf source\\mandela mod omg\\County-Funkin-v2\\CountyUpdater\\Updater\\Updater.csproj",
       "projectName": "Updater",
-      "projectPath": "D:\\Haxeflixel shit\\fnf source\\mandela mod omg\\Main County Funkin\\CountyUpdater\\Updater\\Updater.csproj",
+      "projectPath": "D:\\Haxeflixel shit\\fnf source\\mandela mod omg\\County-Funkin-v2\\CountyUpdater\\Updater\\Updater.csproj",
       "packagesPath": "C:\\Users\\Thanhco\\.nuget\\packages\\",
-      "outputPath": "D:\\Haxeflixel shit\\fnf source\\mandela mod omg\\Main County Funkin\\CountyUpdater\\Updater\\obj\\",
+      "outputPath": "D:\\Haxeflixel shit\\fnf source\\mandela mod omg\\County-Funkin-v2\\CountyUpdater\\Updater\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Thanhco\\AppData\\Roaming\\NuGet\\NuGet.Config"
