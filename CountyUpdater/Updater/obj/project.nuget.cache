@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "nNBhaEUUgTy1VFuLkN6svygSvTj+MQKoidKmrHs//Lrv3ObwpdiKKwYBz7SosKdFCLdVaqk1mxlrfe0mbeKC3w==",
+  "success": true,
+  "projectFilePath": "D:\\Haxeflixel shit\\fnf source\\mandela mod omg\\Main County Funkin\\CountyUpdater\\Updater\\Updater.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Thanhco\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Thanhco\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Thanhco\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Thanhco\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="stanleycf.png">
+<SubTexture name="stanleycf down0000" x="844" y="1257" width="445" height="188" frameX="-76" frameY="-321" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf down0001" x="415" y="1257" width="429" height="199" frameX="-84" frameY="-308" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf down0002" x="0" y="1257" width="415" height="203" frameX="-91" frameY="-299" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf idle0000" x="820" y="997" width="446" height="214" frameX="-75" frameY="-276" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf idle0001" x="405" y="997" width="415" height="246" frameX="-91" frameY="-237" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf idle0002" x="0" y="997" width="405" height="260" frameX="-98" frameY="-214" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf idle0003" x="343" y="681" width="409" height="307" frameX="-97" frameY="-166" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf idle0004" x="609" y="0" width="407" height="334" frameX="-99" frameY="-135" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf left0000" x="313" y="0" width="296" height="336" frameX="-33" frameY="-140" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf left0001" x="328" y="347" width="311" height="327" frameX="-36" frameY="-143" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf left0002" x="639" y="347" width="326" height="316" frameX="-42" frameY="-147" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf up10000" x="1016" y="0" width="504" height="307" frameX="-48" frameY="-94" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf up10001" x="1016" y="307" width="482" height="303" frameX="-58" frameY="-100" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf up10002" x="1016" y="610" width="454" height="296" frameX="-74" frameY="-112" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf right0000" x="0" y="0" width="313" height="347" frameX="-263" frameY="-121" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf right0001" x="0" y="347" width="328" height="334" frameX="-239" frameY="-134" frameWidth="600" frameHeight="600" />
+<SubTexture name="stanleycf right0002" x="0" y="681" width="343" height="316" frameX="-221" frameY="-151" frameWidth="600" frameHeight="600" />
+</TextureAtlas>
