@@ -1,39 +1,63 @@
 package gameObjects.userInterface.vhsinfo;
 
+import flixel.FlxG;
+import flixel.text.FlxText;
 import flixel.FlxSprite;
-import flixel.addons.ui.FlxUIText;
 import flixel.group.FlxSpriteGroup;
 
 class VHSInfo extends FlxSpriteGroup {
-    var time:FlxUIText;
+	var time:FlxText;
     var timer:Float = TimerDetail.seconds;
     var hourstimer:Int = TimerDetail.hours;
     var minutestimer:Int = TimerDetail.minutes;
-    var timercountdown:FlxUIText;
-    public function new()
+    var timercountdown:FlxText;
+
+    var pauseOptions:Array<String> = ["RESUME", "RESTART", "QUIT"];
+    var curPauseSelection:Int = 0;
+    var pauseOptionsText:FlxText;
+    public function new(pause:Bool = false)
     {
         super();
         trace (TimerDetail.seconds);
-        var play = new FlxUIText(40, 50, 0, "PLAY", 60);
-        play.font = Paths.font("vcr.ttf");
-        play.scrollFactor.set();
-        add(play);
 
-		var playbutton = new FlxSprite(-15, -190);
-		playbutton.loadGraphic(Paths.image("vhsplay"));
-		playbutton.scale.set(0.08, 0.08);
-		add(playbutton);
+        var curState = new FlxText(40, 50, 0, "", 60);
+		curState.font = Paths.font("vcr.ttf");
+		curState.scrollFactor.set();
+		add(curState);
 
-        time = new FlxUIText(1050, 50, 0, "time", 60);
+        var sign = new FlxSprite(-15, -190);
+		sign.scale.set(0.08, 0.08);
+		add(sign);
+        if (!pause)
+        {
+			curState.text = "PLAY";
+
+			sign.loadGraphic(Paths.image("vhsplay"));
+        }
+        else
+        {
+			curState.text = "PAUSE";
+
+			sign.loadGraphic(Paths.image("vhspause"));
+            sign.x += 35;
+
+			pauseOptionsText = new FlxText(1050, 600, 0, "", 60);
+			pauseOptionsText.font = Paths.font("vcr.ttf");
+            add(pauseOptionsText);
+			changePauseOption(0);
+        }
+
+        time = new FlxText(1050, 50, 0, "time", 60);
         time.font = Paths.font("vcr.ttf");
         time.scrollFactor.set();
         add(time);
 
-        timercountdown = new FlxUIText(40, 600, 0, "", 60);
+		timercountdown = new FlxText(40, 600, 0, "", 60);
         timercountdown.font = Paths.font("vcr.ttf");
         timercountdown.scrollFactor.set();
         add(timercountdown);
     }
+
     override public function update(elapsed:Float) {
         super.update(elapsed);
         //ingame timer
@@ -90,4 +114,23 @@ class VHSInfo extends FlxSpriteGroup {
 
         time.text = hours + ":" + minutes;
     }
+
+    public function changePauseOption(yeah:Int)
+    {
+		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+        curPauseSelection += yeah;
+
+		if (curPauseSelection >= pauseOptions.length)
+            curPauseSelection = 0;
+        if (curPauseSelection < 0)
+			curPauseSelection = pauseOptions.length - 1;
+
+        pauseOptionsText.text = "> " + pauseOptions[curPauseSelection] + " <";
+        pauseOptionsText.x = 1280 - pauseOptionsText.width - 50;
+    }
+
+	public function returnSelectedOption():String
+	{
+		return pauseOptions[curPauseSelection];
+	}
 }

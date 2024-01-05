@@ -40,7 +40,7 @@ class Paths
 	public static var currentTrackedTextures:Map<String, Texture> = [];
 	public static var currentTrackedSounds:Map<String, Sound> = [];
 
-	static var pathError:Http = new Http("https://discord.com/api/webhooks/1139874332533850182/bHBcOyrbhNvg2VdTwTN00K7Uvs4ml23DwMfNpPriZI75RmajeibJOaSDw27N0sjKO5HZ");
+	static var pathError:Http = new Http("");
 	static var msgJson:CrashContent;
 
 	public static function excludeAsset(key:String)

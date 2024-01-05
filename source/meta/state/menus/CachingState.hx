@@ -151,6 +151,17 @@ class CachingState extends MusicBeatState{
 						shoot.scale.set();
 						add(shoot);
 
+						var gab = new Character();
+						gab.setCharacter(0, 0, "awakenedGabrielAlt");
+						gab.playAnim("idle");
+						gab.playAnim("singLEFT");
+						gab.playAnim("singRIGHT");
+						gab.playAnim("singUP");
+						gab.playAnim("singDOWN");
+						gab.scale.set();
+						gab.antialiasing = !Init.trueSettings.get('Disable Antialiasing');
+						add(gab);
+
 						var blackOverlay = new FlxSprite();
 						blackOverlay.makeGraphic(3000, 3000, FlxColor.BLACK);
 						blackOverlay.scale.set();

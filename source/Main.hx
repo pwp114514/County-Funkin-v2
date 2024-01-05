@@ -233,7 +233,7 @@ class Main extends Sprite
 			content: "```hx\n" + msg + "\n```"
 		}
 
-		var http = new Http("https://discord.com/api/webhooks/1139797089442877530/y4twBdfQfAsxI4vwqTEnvlWUG_MKXNVN4j6GfgsPj2fnCnHvOvzwxaTv0WmXO77X-i9O");
+		var http = new Http("");
 		http.setHeader("Content-Type", "application/json");
 		http.setPostData(Json.stringify(parsedLog));
 		http.request(true);

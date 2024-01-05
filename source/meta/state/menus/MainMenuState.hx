@@ -1,5 +1,7 @@
 package meta.state.menus;
 
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import sys.Http;
 import flixel.math.FlxMath;
 import flixel.FlxObject;
@@ -44,9 +46,13 @@ class MainMenuState extends MusicBeatState
 		camSELECTION = new FlxCamera();
 		camSELECTION.bgColor.alpha = 0;
 
+		var camWARNING = new FlxCamera();
+		camWARNING.bgColor.alpha = 0;
+
 		FlxG.cameras.reset(camMAIN);
 		FlxG.cameras.add(camINFO);
 		FlxG.cameras.add(camSELECTION);
+		FlxG.cameras.add(camWARNING);
 
 		FlxCamera.defaultCameras = [camMAIN];
 
@@ -64,10 +70,20 @@ class MainMenuState extends MusicBeatState
 			camINFO.visible = false;
 			camSELECTION.visible = false;
 
+			var warning:FlxText = new FlxText(0, 0, 0, "FLASHING LIGHTS AND SENSITIVE CONTENT AHEAD!\n\nYOU HAVE BEEN WARNED.", 40);
+			warning.alignment = CENTER;
+			warning.font = Paths.font("vcr.ttf");
+			warning.camera = camWARNING;
+			warning.alpha = 0;
+			warning.screenCenter();
+			add(warning);
+
 			new FlxTimer().start(2, function(e:FlxTimer)
 			{
+				FlxTween.tween(warning, {alpha: 1}, 1, {ease:FlxEase.sineInOut});
 				FlxG.sound.play(Paths.sound("county-sounds/inserttape"), 0.1, false, null, true, function()
 				{
+					warning.visible = false;
 					camMAIN.visible = true;
 					camINFO.visible = true;
 					camSELECTION.visible = true;
@@ -164,12 +180,15 @@ class MainMenuState extends MusicBeatState
 			}
 			if (controls.ACCEPT)
 			{
-				FlxG.cameras.remove(camSELECTION);
-				switch (optionGroup[selection].ID)
+				switch (selection)
 				{
 					case 0:
+						FlxG.cameras.remove(camSELECTION);
 						Main.switchState(this, new StoryMenuState());
+					case 1:
+						FlxG.openURL("https://gamebanana.com/mods/389366");
 					case 2:
+						FlxG.cameras.remove(camSELECTION);
 						Main.switchState(this, new OptionsMenuState());
 				}
 			}
@@ -180,7 +199,7 @@ class MainMenuState extends MusicBeatState
 
 			for (i in 0...optionGroup.length)
 			{
-				if (optionGroup[i].ID != selection)
+				if (i != selection)
 				{
 					optionGroup[i].color = FlxColor.WHITE;
 					optionGroup[i].alpha = 0.6;
@@ -204,7 +223,6 @@ class MainMenuState extends MusicBeatState
 			optionText.font = Paths.font("vcr.ttf");
 			optionText.screenCenter(X);
 			optionText.camera = camSELECTION;
-			optionText.ID = i;
 			optionGroup.push(optionText);
 			add(optionText);
 			y += 110;

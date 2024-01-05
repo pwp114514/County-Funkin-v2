@@ -106,6 +106,11 @@ class Events {
 				PlayState.dadOpponent.alpha = 0;
 
 				beginningIntro = new VideoSprite(262, 30);
+				beginningIntro.bitmap.onPlaying = function(){
+					if (PlayState.instance.paused)
+						beginningIntro.bitmap.pause();
+				}
+
 				eyes = new FlxSprite(-427, -240);
 				eyes.loadGraphic(Paths.image("county-sprites/befriended/eyes"));
 				add(eyes, 0);
@@ -786,6 +791,9 @@ class Events {
 						i.zoom += 0.2;
 
 					blackOverlay.alpha = 0;
+
+					PlayState.dadOpponent.setCharacter(480, -525, "awakenedGabrielAlt");
+					PlayState.dadOpponent.setPosition(480, -525);
 				}
 				if (step == 912)
 				{
@@ -1908,8 +1916,13 @@ class Events {
 
 					rememberedBars.visible = true;
 				}
-				if (step == 384 || step == 512 || step == 640)
-					PlayState.camGame.zoom += 0.05;
+				if (step == 384 || step == 512 || step == 640 || step == 896 || step == 1024 || step == 1152 || step == 1920 || step == 2052 || step == 2176)
+				{
+					PlayState.camGame.flash(FlxColor.WHITE, 1.2);
+					PlayState.camGame.zoom += 0.5;
+					for (i in PlayState.instance.allUIs)
+						i.zoom += 0.2;
+				}
 				if (step == 752)
 				{
 					FlxTweenPlayState.tween(blackOverlay, {alpha: 0.5}, 0.4);
@@ -1993,8 +2006,6 @@ class Events {
 					rememberedVisualizer2.active = true;
 					rememberedVisualizer2.visible = true;
 				}
-				if (step == 2052)
-					PlayState.camGame.zoom += 0.2;
 				if (step == 2288)
 				{
 					FlxTweenPlayState.tween(blackOverlay, {alpha: 0.4}, 0.4);
@@ -4112,7 +4123,7 @@ class Events {
 					whiteFlash.alpha = 0.15;
 					FlxTweenPlayState.tween(whiteFlash, {alpha: 0}, 0.2);
 				}
-				if (beat >= 640 && beat < 704 && beat % 2 == 0)
+				if (beat >= 641 && beat < 704)
 				{
 					PlayState.camGame.zoom += 0.1;
 					for (i in PlayState.instance.allUIs)

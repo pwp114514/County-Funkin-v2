@@ -14,69 +14,6 @@ import flixel.sound.FlxSound;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 
-typedef VoiceModifier =
-{
-	var width:Int;
-	var height:Int;
-	var lineWidth:Float;
-	var ampMultiplier:Float;
-	var speedMultiplier:Float;
-	var timeTillSpawn:Float;
-}
-
-class VoiceVisualizer extends FlxSpriteGroup {
-	var timeTillSpawn:Float;
-
-	var line:FlxSprite;
-
-	public var audioData:FlxSound;
-
-	var itemGroup:Array<FlxSprite> = [];
-	var modifier:VoiceModifier;
-
-	public function new(X:Float = 0, Y:Float = 0, modifiers:VoiceModifier) {
-		super(X, Y);
-
-		modifier = modifiers;
-		
-		line = new FlxSprite();
-		line.makeGraphic(modifier.width, modifier.height);
-		add(line);
-	}
-
-	override function update(elapsed:Float) {
-		super.update(elapsed);
-		timeTillSpawn += elapsed;
-
-		if (audioData != null && timeTillSpawn >= modifier.timeTillSpawn) {
-			timeTillSpawn = 0;
-			var amp = 1772 * audioData.amplitude * modifier.ampMultiplier;
-				
-			if (Math.round(amp) > 0)
-			{
-				var lineAudio = new FlxSprite(line.width, 0);
-				lineAudio.makeGraphic(1, 1);
-				lineAudio.scale.set(modifier.lineWidth, Math.round(amp));
-				lineAudio.y = -lineAudio.height / 2;
-				add(lineAudio);
-				itemGroup.push(lineAudio);
-			}
-		}
-
-		for (bar in itemGroup)
-		{
-			bar.x -= 100 * elapsed * modifier.speedMultiplier;
-			if (bar.x < line.x)
-			{
-				remove(bar);
-				bar.destroy();
-			}
-		}
-	}
-}
-
-/////////////////////////////////////////////////////////////////////////////
-
 typedef BarModifier = {
 	var minHeight:Float;
 	var maxHeight:Float;
@@ -135,9 +72,11 @@ class BarVisualizer extends FlxSpriteGroup {
 		{
 			songTime = audio.time / 1000;
 			spectrumOrder = 0;
-			for (i in trimmedSpectrumData[0])
+
+			var time = trimmedSpectrumData[0];
+			for (i in time)
 				if (Math.abs(songTime - i) <= 0.03)
-					spectrumOrder = trimmedSpectrumData[0].indexOf(i);
+					spectrumOrder = time.indexOf(i);
 			for (i in 0...barGroup.length)
 			{
 				var order = i;

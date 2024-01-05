@@ -582,6 +582,8 @@ class PlayState extends MusicBeatState
 			{
 				// Conductor.songPosition = FlxG.sound.music.time;
 				Conductor.songPosition += elapsed * 1000;
+				if (Conductor.songPosition > songMusic.length)
+					Conductor.songPosition = songMusic.length;
 
 				if (!paused)
 				{

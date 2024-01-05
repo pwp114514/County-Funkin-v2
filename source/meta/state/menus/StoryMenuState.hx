@@ -121,7 +121,7 @@ class StoryMenuState extends MusicBeatState
 		if (controls.RIGHT_P)
 			switchSong(1);
 		if (controls.BACK)
-			FlxG.switchState(new MainMenuState());
+			Main.switchState(this, new MainMenuState());
 		if (controls.ACCEPT)
 			Main.switchState(this, new CachingState(songList[selection]));
 	}

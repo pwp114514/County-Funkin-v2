@@ -107,8 +107,8 @@ class Character extends FNFSprite
 				scale.set(1.25, 1.25);
 				updateHitbox();
 				
-				characterData.camOffsetX = -100;
-				characterData.camOffsetY = -200;
+				characterData.camOffsetX = -300;
+				characterData.camOffsetY = -150;
 
 				playAnim("idle");
 

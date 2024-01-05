@@ -3,7 +3,7 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Forever Engine" file="Forever-Engine" packageName="com.yoshubs.foreverenginelegacy" package="com.yoshubs.foreverenginelegacy" main="Main" version="0.3.1" company="Yoshubs" />
+	<app title="County Funkin'" file="County Funkin'" packageName="com.yoshubs.foreverenginelegacy" package="com.yoshubs.foreverenginelegacy" main="Main" version="0.3.1" company="Yoshubs" />
 
 	<!--The flixel preloader is not accurate in Chrome. You can use it regularly if you embed the swf into a html file
 		or you can set the actual size of your file manually at "FlxPreloaderBase-onUpdate-bytesTotal"-->
@@ -82,12 +82,6 @@
 
 	<!-- _________________________________ Custom _______________________________ -->
 
-	<icon path="art/icon16.png" size='16' />
-	<icon path="art/icon32.png" size='32' />
-	<icon path="art/icon64.png" size='64' />
-	<icon path="art/icon128.png" size='128' />
-	<icon path="art/icon256.png" size='256' />
-	<icon path="art/icon512.png" size='512' />
-	<icon path="art/iconOG.png" />
+	<icon path="art/County.png" />
 
 </project>
