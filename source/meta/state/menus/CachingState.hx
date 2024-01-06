@@ -19,7 +19,7 @@ import flixel.util.FlxTimer;
 import flixel.addons.text.FlxTypeText;
 import flixel.text.FlxText;
 import meta.MusicBeat.MusicBeatState;
-import hxcodec.VideoSprite;
+import VideoSprite;
 
 class CachingState extends MusicBeatState{
 	var credits:Map<String, String> = [
