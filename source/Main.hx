@@ -181,7 +181,7 @@ class Main extends Sprite
 		addChild(infoCounter);
 
 		
-		#if deskttop
+		#if desktop
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, killCua);
 		#end
 		
