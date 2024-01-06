@@ -1,6 +1,6 @@
 package;
 
-import hxcodec.VideoSprite;
+import VideoSprite;
 import lime.app.Application;
 import gameObjects.userInterface.AudioVisualizer.BarVisualizer;
 import gameObjects.userInterface.SquareRiser;
