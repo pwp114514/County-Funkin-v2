@@ -114,6 +114,8 @@ class Main extends Sprite
 	{
 		super();
 
+		SUtil.gameCrashCheck();
+
 		/**
 			ok so, haxe html5 CANNOT do 120 fps. it just cannot.
 			so here i just set the framerate to 60 if its complied in html5.
@@ -143,6 +145,8 @@ class Main extends Sprite
 			// this just kind of sets up the camera zoom in accordance to the surface width and camera zoom.
 			// if set to negative one, it is done so automatically, which is the default.
 		}
+
+		SUtil.doTheCheck();
 
 		FlxTransitionableState.skipNextTransIn = true;
 
