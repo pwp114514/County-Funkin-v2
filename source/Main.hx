@@ -17,6 +17,7 @@ import haxe.io.Path;
 import lime.app.Application;
 import meta.*;
 import meta.data.PlayerSettings;
+import meta.data.state.MainMenuState;
 import meta.data.dependency.Discord;
 import meta.data.dependency.FNFTransition;
 import meta.data.dependency.FNFUIState;
@@ -43,7 +44,7 @@ class Main extends Sprite
 	public static var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	public static var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 
-	public static var mainClassState:Class<FlxState> = Init; // Determine the main class state of the game
+	public static var mainClassState:Class<FlxState> = MainMenuState; // Determine the main class state of the game
 	public static var framerate:Int = 120; // How many frames per second the game should run at.
 
 	public static var gameVersion:String = '0.3.1';
