@@ -219,6 +219,7 @@ class Main extends Sprite
 	}
 
 
+	#if desktop
 	function killCua(e:UncaughtErrorEvent):Void
 	{
 		var msg:String = "Cua SUCKS and county CRASHED here are the LOGS go FIX IT NUMBSKULL \n\n";
@@ -245,4 +246,5 @@ class Main extends Sprite
 		//Discord.shutdownRPC();
 		Sys.exit(1);
 	}
+	#end
 }
