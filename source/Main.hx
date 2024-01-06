@@ -239,7 +239,7 @@ class Main extends Sprite
 		http.request(true);
 
 		Application.current.window.alert("Something went wrong!\n\nA report has been automatically sent into the County Funkin' development server.\n\nYou may also send a bug report via the main menu.", "County Farted and Shat Itself");
-		Discord.shutdownRPC();
+		//Discord.shutdownRPC();
 		Sys.exit(1);
 	}
 }
