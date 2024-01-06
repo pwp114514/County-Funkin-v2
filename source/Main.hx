@@ -17,7 +17,7 @@ import haxe.io.Path;
 import lime.app.Application;
 import meta.*;
 import meta.data.PlayerSettings;
-import meta.data.state.MainMenuState;
+import meta.data.state.menus.MainMenuState;
 import meta.data.dependency.Discord;
 import meta.data.dependency.FNFTransition;
 import meta.data.dependency.FNFUIState;
