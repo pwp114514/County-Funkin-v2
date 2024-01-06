@@ -168,17 +168,9 @@ class Main extends Sprite
 		// default game FPS settings, I'll probably comment over them later.
 		// addChild(new FPS(10, 3, 0xFFFFFF));
 
-		// begin the discord rich presence
-		#if DISCORD_RPC
-		Discord.initializeRPC();
-		Discord.changePresence('');
-		#end
-
+				     
 		// test initialising the player settings
 		PlayerSettings.init();
-
-		infoCounter = new Overlay(0, 0);
-		addChild(infoCounter);
 
 		
 		#if desktop
