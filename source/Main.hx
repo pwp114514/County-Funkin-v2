@@ -121,8 +121,7 @@ class Main extends Sprite
 			note studders and shit its weird.
 		**/
 
-		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, killCua);
-
+		
 		#if (html5 || neko)
 		framerate = 60;
 		#end
@@ -166,6 +165,10 @@ class Main extends Sprite
 
 		infoCounter = new Overlay(0, 0);
 		addChild(infoCounter);
+
+
+		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, killCua);
+
 	}
 
 	public static function framerateAdjust(input:Float)
@@ -211,35 +214,42 @@ class Main extends Sprite
 		}
 	}
 
+
 	function killCua(e:UncaughtErrorEvent):Void
 	{
-		var msg:String = "Cua SUCKS and county CRASHED here are the LOGS go FIX IT NUMBSKULL \n\n";
+		var path:String;
+		var errmsg:String = "Cua SUCKS and county CRASHED here are the LOGS go FIX IT NUMBSKULL \n\n";
 		var stacks:Array<StackItem> = CallStack.exceptionStack(true);
+		var dateNow:String = Date.now().toString();
+
+		dateNow = dateNow.replace(" ", "_");
+		dateNow = dateNow.replace(":", "'");
+
+		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
 
 		for (stack in stacks)
 		{
 			switch (stack)
 			{
 				case FilePos(s, file, line, column):
-					msg += 'CALLED IN "' + file + '" IN LINE ' + Std.int(line) + "\n";
+					errMsg += file + " (line " + line + ")\n";
 				default:
-					trace("kys");
+					Sys.println(stackItem);
 			}
 		}
-		msg += "\nTHROWED BACK: " + e.error;
 
-		var parsedLog:CrashContent;
-		parsedLog = {
-			content: "```hx\n" + msg + "\n```"
-		}
+		errMsg += "\nUncaught Error: " + e.error + "\n";
 
-		var http = new Http("");
-		http.setHeader("Content-Type", "application/json");
-		http.setPostData(Json.stringify(parsedLog));
-		http.request(true);
+		if (!FileSystem.exists("./crash/"))
+			FileSystem.createDirectory("./crash/");
 
-		Application.current.window.alert("Something went wrong!\n\nA report has been automatically sent into the County Funkin' development server.\n\nYou may also send a bug report via the main menu.", "County Farted and Shat Itself");
-		//Discord.shutdownRPC();
+		File.saveContent(path, errMsg + "\nSomething went wrong!\n\nA report has been automatically sent into the County Funkin' development server.\n\nYou may also send a bug report via the main menu.", "County Farted and Shat Itself");
+
+		Sys.println(errMsg);
+		Sys.println("Crash dump saved in " + Path.normalize(path));
+
+		Application.current.window.alert(errMsg, "Error!");
+		//DiscordClient.shutdown();
 		Sys.exit(1);
 	}
 }
