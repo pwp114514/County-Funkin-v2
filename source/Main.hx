@@ -170,9 +170,11 @@ class Main extends Sprite
 		infoCounter = new Overlay(0, 0);
 		addChild(infoCounter);
 
-
+		
+		#if deskttop
 		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, killCua);
-
+		#end
+		
 	}
 
 	public static function framerateAdjust(input:Float)
