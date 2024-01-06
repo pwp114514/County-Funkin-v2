@@ -221,39 +221,28 @@ class Main extends Sprite
 
 	function killCua(e:UncaughtErrorEvent):Void
 	{
-		var path:String;
-		var errmsg:String = "Cua SUCKS and county CRASHED here are the LOGS go FIX IT NUMBSKULL \n\n";
+		var msg:String = "Cua SUCKS and county CRASHED here are the LOGS go FIX IT NUMBSKULL \n\n";
 		var stacks:Array<StackItem> = CallStack.exceptionStack(true);
-		var dateNow:String = Date.now().toString();
-
-		dateNow = dateNow.replace(" ", "_");
-		dateNow = dateNow.replace(":", "'");
-
-		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
 
 		for (stack in stacks)
 		{
 			switch (stack)
 			{
 				case FilePos(s, file, line, column):
-					errMsg += file + " (line " + line + ")\n";
+					msg += 'CALLED IN "' + file + '" IN LINE ' + Std.int(line) + "\n";
 				default:
-					Sys.println(stackItem);
+					trace("kys");
 			}
 		}
+		msg += "\nTHROWED BACK: " + e.error;
 
-		errMsg += "\nUncaught Error: " + e.error + "\n";
+		var parsedLog:CrashContent;
+		parsedLog = {
+			content: "```hx\n" + msg + "\n```"
+		}
 
-		if (!FileSystem.exists("./crash/"))
-			FileSystem.createDirectory("./crash/");
-
-		File.saveContent(path, errMsg + "\nSomething went wrong!\n\nA report has been automatically sent into the County Funkin' development server.\n\nYou may also send a bug report via the main menu.", "County Farted and Shat Itself");
-
-		Sys.println(errMsg);
-		Sys.println("Crash dump saved in " + Path.normalize(path));
-
-		Application.current.window.alert(errMsg, "Error!");
-		//DiscordClient.shutdown();
+		Application.current.window.alert("Something went wrong!\n\nA report has been automatically sent into the County Funkin' development server.\n\nYou may also send a bug report via the main menu.", "County Farted and Shat Itself");
+		//Discord.shutdownRPC();
 		Sys.exit(1);
 	}
 }
